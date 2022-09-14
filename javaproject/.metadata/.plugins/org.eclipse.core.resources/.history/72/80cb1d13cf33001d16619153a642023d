@@ -1,0 +1,24 @@
+package first;
+
+public class Calculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+	     /* 
+	     숫자 두 개를 매개변수의 인자로 전달받아 더하기 메소드를 추가합시다.
+		 숫자 두 개를 매개변수의 인자로 전달받아 빼기 메소드를 추가합시다.
+		 숫자 두 개를 매개변수의 인자로 전달받아 곱하기 메소드를 추가합시다.
+		 숫자 두 개를 매개변수의 인자로 전달받아 나누기 메소드를 추가합시다.
+         */
+	}
+	//숫자 두 개를 매개변수의 인자로 전달받아 더하기 메소드를 추가합시다.
+	public static long add(long num1, long num2) {
+		long result = num1 + num2;
+		return result;
+		long num1 = 10000;
+		long num2 = 234;
+		System.out.println(result);
+	}
+}

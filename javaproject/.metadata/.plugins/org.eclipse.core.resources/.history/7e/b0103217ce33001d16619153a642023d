@@ -1,0 +1,19 @@
+package first;
+
+public class Member2 {
+	
+	public static void main(String[] args) {
+		
+		void
+	}
+		
+		int num = 100;
+		
+		int num1 = 1000;
+		int num2 = 234;
+		
+		long result = (long) num1*num2 ;
+		
+		System.out.println(result);
+
+}

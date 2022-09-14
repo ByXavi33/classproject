@@ -1,0 +1,12 @@
+package first;
+
+public class ConsolePrintTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		System.out.print("안녕하세요. \n  소농민\t/t 입니다." );
+	}
+
+}

@@ -1,0 +1,23 @@
+package chapter02;
+
+public class ValiableIntegerTest {
+
+	public static void main(String[] args) {
+		
+		
+		//정수 : byte    short    int(기본 타입)    long
+		//      1byte   2byte    4byte           8byte
+		
+		int num = 100;
+		
+		byte byteNum1 = 10;
+		byte byteNum2 = 127;
+		byte byteNum3 = (byte)200;
+		
+		System.out.println(byteNum1);
+		System.out.println(byteNum2);
+		System.out.println(byteNum3);
+		
+		
+	}
+}
