@@ -15,5 +15,7 @@ public class CatingOperator {
 		
 		byte result = num1 + num2; 
 		//byte + byte => int + int = int
+		
+		
 	}
 }
