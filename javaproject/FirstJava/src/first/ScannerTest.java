@@ -23,6 +23,7 @@ public class ScannerTest {
 		  
 		  System.out.println("나이 :" + age);
 		  
+		  
 		
 		
 	}
