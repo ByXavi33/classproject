@@ -63,7 +63,7 @@ public class Member {
 		System.out.println("책 보유 여부를 입력해주세요.>>>");
 		hasBook = in.nextBoolean();
 		
-		System.out.println("책은 안가지고 있어요");
+		System.out.println();
 		
 	}
 }
