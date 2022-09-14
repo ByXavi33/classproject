@@ -6,7 +6,7 @@ public class Calculator {
 		
 		System.out.println("10+20=" +add(10,20)); //10+20=30
 		System.out.println("315-4857=" + substract(315,4857)); //315-4857=-4542
-		System.out.println("10*15*34=" +multifly(10,15,34)); //10*15*34=5100
+		System.out.println("10*15=" +multifly(10,15)); //10*15*=
 		System.out.println("160/16=" + divide (160,16)); // 160/16=10
 		
 	}
@@ -26,9 +26,9 @@ public class Calculator {
 	}
 	
 	//숫자 두 개를 매개변수의 인자로 전달받아 곱하기 메소드를 추가합시다.
-	public static long multifly(long num1, long num2, long num3) {
+	public static long multifly(long num1, long num2) {
 		
-		return num1 * num2 * num3;
+		return num1 * num2;
 	}
 	
 	//숫자 두 개를 매개변수의 인자로 전달받아 나누기 메소드를 추가합시다.
