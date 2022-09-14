@@ -6,7 +6,7 @@ public class Calculator {
 		
 		System.out.println("10+20=" +add(10,20)); //10+20=30
 		System.out.println("315-4857=" + substract(315,4857)); //315-4857=-4542
-		System.out.println("10*15=" +multifly(10,15)); //10*15*=
+		System.out.println("10*15=" +multifly(10,15)); //10*15*=150
 		System.out.println("160/16=" + divide (160,16)); // 160/16=10
 		
 	}
