@@ -36,9 +36,9 @@ public class Calculator {
 		System.out.println("숫자를 입력하세요. >>> ");
 		double num3 = sc.nextDouble();
 		
-		// 원의 반지름
-		System.out.println("원의 둘레는 : "+ cle(num3));
 		// 원의 둘레
+		System.out.println("원의 둘레는 : "+ cle(num3));
+		// 원의 넓이
 		System.out.println("원의 넓이는 : "+ cla(num3));
 		
 		
@@ -70,7 +70,6 @@ public class Calculator {
 		public static double cle(double num3) {
 			double re = 2 * 3.14 * num3;
 			return re;
-			
 			
 		}
 		public static double cla(double num3) {

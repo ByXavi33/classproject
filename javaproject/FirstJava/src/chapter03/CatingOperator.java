@@ -13,7 +13,7 @@ public class CatingOperator {
 		// 정수 실수 문자 논리값
 		// byte short int long, float doule, char, boolaen
 		
-		byte result = num1 + num2; 
+		//byte result = num1 + num2; 
 		//byte + byte => int + int = int
 		
 		

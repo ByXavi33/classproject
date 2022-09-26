@@ -8,6 +8,7 @@ public class PrivateMain {
 		
 		
 		pt.showInfo();
+		
 		//System.out.println(pt.name);
 		//System.out.println(pt.age);
 		//pt.age=300;

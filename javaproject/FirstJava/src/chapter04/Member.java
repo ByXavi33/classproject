@@ -55,7 +55,7 @@ public class Member {
 		}
 
 		else {
-			System.out.println("건강검진 및 암 검사가 가능합니다");
+			System.out.println("건강검진 및 암 검사가 가능합니다.");
 		}
 	}
 }

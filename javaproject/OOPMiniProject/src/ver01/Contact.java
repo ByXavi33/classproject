@@ -2,7 +2,7 @@ package ver01;
 
 //Contact 클래스의 용도 ? => 데이터 저장
 // 인스턴스 생성 - 변수의 메모리 생성 -> 데이터 저장
-public class Contact {
+ public class Contact {
 
 	// 변수들은 직접 참조를 막아 캡슐화 처리
 	// 이름

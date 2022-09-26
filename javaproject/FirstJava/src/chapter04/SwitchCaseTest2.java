@@ -9,7 +9,7 @@ public class SwitchCaseTest2 {
 		// 70점 이상 : C 70~79 => score / 10 =7f
 		// 70점 미만 : F 69 이하 => score /
 
-		int score = ;
+		int score = 0;
 		char c = 'A';
 
 		// key : int 가능한 숫자, String

@@ -25,4 +25,5 @@ public class IfTest3 {
 			//
 		}else {
 		}
+	}
 }
