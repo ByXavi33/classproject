@@ -30,6 +30,11 @@ public class StudentMain {
 			korTotal += s.getKor();
 			engTotal += s.getEng();
 			matTotal += s.getMat();
+			
+			System.out.println("--------------------------------------------");
+			System.out.printf("과목총점\t %d \t %d \t %d \n", korTotal, engTotal, matTotal);
+			System.out.printf("과목평균\t %.1f \t%.1f \t %.1f \n", korTotal / 10f, engTotal / 10f,
+					matTotal / 10f);
 		}
 	}
 }
