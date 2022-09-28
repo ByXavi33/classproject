@@ -18,7 +18,7 @@ public class Add {
 		long checkTime = endTime - startTime;
 		
 
-		System.out.println(sum);
+		System.out.println("연산 결과값" + sum);
 		System.out.println("실행 시간 : " + (checkTime));
 		
 		
