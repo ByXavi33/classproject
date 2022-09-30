@@ -80,8 +80,6 @@ public class PhoneMain {
 			list[i].turnOn();
 		}
 		
-		//Computer
-		
 		
 
 	}
