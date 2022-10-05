@@ -1,6 +1,7 @@
 package chapter11;
 
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.Set;
 
 public class HashMapTest {

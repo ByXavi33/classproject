@@ -24,11 +24,11 @@ public class Exam1Main {
 		
 		
 		//List<E> : 저장 순서를 유지 -> index 값을 가지고, 일괄처리를 할수있다.
-		for(FootballPlayer p :players) {
-			System.out.println(p);
-			
-		}
-
+		
+		
+	for(FootballPlayer p :players) {
+		System.out.println(p);
 	}
-
+	}
 }
+

@@ -1,5 +1,7 @@
 package chapter11;
 
+import java.util.Scanner;
+
 public class SmartPhone implements Comparable<SmartPhone> {
 
 	private String name;

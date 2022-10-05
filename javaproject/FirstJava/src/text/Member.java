@@ -9,13 +9,13 @@ public class Member {
 	 * ④ main() 메소드에서 두 가지 생성자를 이용해서 인스턴스 생성하고 출력 메소드를 통해 저장된 데이터 출력
 	 */
 	
-	String name;
-	String phoneNum;
-	String major;
-	int grade;
-	String eMail;
-	String birth;
-	String address;
+	private String name;
+	private String phoneNum;
+	private String major;
+	private int grade;
+	private String eMail;
+	private String birth;
+	private String address;
 	
 	public String getName() {
 		return name;

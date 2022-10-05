@@ -1,8 +1,9 @@
-package ver05;
+package ver06;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
-public class SmartPhone {
+public class SmartPhone  extends Exception{
 
 	// 기능 클래스 : 속성을 가지지 않고 메소드들로만 정의된 클래스
 	// 여러개의 인스턴스가 생성될 필요 없다! => 싱글톤 패턴
@@ -57,7 +58,7 @@ public class SmartPhone {
 				break;
 			}
 		}
-		
+
 		return searchIndex;
 
 	}
@@ -70,7 +71,7 @@ public class SmartPhone {
 		System.out.print("수정하고자 하는 이름을 입력해주세요 >");
 
 		int searchIndex = getIndex();
-		
+
 		if (searchIndex < 0) {
 			System.out.println("찾으시는 데이터가 존재하지않습니다.");
 			return;
@@ -181,7 +182,7 @@ public class SmartPhone {
 		// 검색어 받기
 		System.out.println("데이터 삭제가 진행됩니다.");
 		System.out.print("삭제하고자 하는 이름을 입력해주세요 >");
-		
+
 		int searchIndex = getIndex();
 
 		// 검색한 index 값으로 분기 : 시프트를 하거나 검색 결과 이름이 존재하지 않는다!
@@ -209,11 +210,11 @@ public class SmartPhone {
 
 		System.out.println("검색을 시작합니다.");
 		System.out.print("검색할 이름을 입력하세요. >");
-		
+
 		int searchIndex = getIndex();
-		
+
 		// 3. 결과 출력 : "검색한 이름의 정보가 없습니다."
-		System.out.println("검색의 결과 ===============");
+		System.out.println("검색 결과 ===============");
 		if (searchIndex < 0) {
 			System.out.println("검색한 이름 " + name + " 의 정보가 없습니다.");
 		} else {
@@ -265,13 +266,47 @@ public class SmartPhone {
 
 		// 1. 데이터 받고
 		System.out.println("입력을 시작합니다.");
+		
+		
+		boolean chk1 = false;
+		
+		
+		
+		while (!chk1) {
+			
+			System.out.print("이름 > ");
+			name = getName();
+			chk1 = Pattern.matches("^[a-zA-Z가-힣]*$", name); // 영문자와 숫자의 조합으로 패턴
 
-		System.out.print("이름 > ");
-		name = getString();
+			try {
+				if (!chk1) {
+					throw new Exception();
+				}
+			} catch (Exception e) {
+				System.out.println("영문,한글 입력만 가능합니다.");
+			} 
+		}
+		
+		
+		
+		
+		boolean chk2 = false;
 
-		System.out.print("전화번호 >");
-		phoneNumber = getString();
+		while (!chk2) {
+			System.out.print("전화번호 >");
+			phoneNumber = getPhoneNumber();
+			chk2 = Pattern.matches("^\\d{11}+$", phoneNumber);
+			
+			try {
+				if (!chk2) {
+					throw new Exception();
+				}
+				
+			} catch (Exception e) {
+				System.out.println("전화번호 형식이 맞지 않습니다.");
 
+			}
+		}
 		System.out.print("이메일 >");
 		email = getString();
 
@@ -343,93 +378,76 @@ public class SmartPhone {
 		return str;
 
 	}
-	
+
 	// 이름정보를 받아서 중복 여부 체크 후 문자열 반환
 	private String getName() {
 		String name = null;
-		
+
 		while (true) {
-			
+
 			name = sc.nextLine();
 
-			if (name != null && name.trim().length() != 0 ) {
+			if (name != null && name.trim().length() != 0) {
 				// 배열에 요소에 같은이름의 요소가 있는지 체크
 				boolean check = false;
-				
+
 				// 이름 검색
-				for(int i=0; i<numOfContact ; i++) {
-					if(name.equals(contacts[i].getName())) {
+				for (int i = 0; i < numOfContact; i++) {
+					if (name.equals(contacts[i].getName())) {
 						check = true;
 						break;
 					}
 				}
-				
-				if(check) {
+
+				if (check) {
 					System.out.println("같은 이름의 데이터가 존재합니다.\n다시입력하세요!! >> ");
-					//continue;
+					// continue;
 				} else {
 					break;
 				}
-				
+
 			} else {
 				System.out.println("공백은 허용하지 않습니다. 정상적인 문자를 입력하세요!");
 			}
 
 		}
-		
-		
+
 		return name;
 	}
-	
+
 	// 전화번호를 받아서 중복된 전화번호가 있는지 체크 중복되지 않는 전화번호를 받아서 반환
 	private String getPhoneNumber() {
-		
+
 		String phoneNumber = null;
-		
-		while(true) {
-			
+
+		while (true) {
+
 			phoneNumber = sc.nextLine();
-			
-			if(phoneNumber!=null && phoneNumber.trim().length()>0) {
-				
+
+			if (phoneNumber != null && phoneNumber.trim().length() > 0) {
+
 				boolean check = false;
-				
+
 				// 중복여부 체크
-				for(int i=0; i<numOfContact; i++) {
-					if(phoneNumber.equals(contacts[i].getPhoneNumber())) {
+				for (int i = 0; i < numOfContact; i++) {
+					if (phoneNumber.equals(contacts[i].getPhoneNumber())) {
 						check = true;
 						break;
 					}
 				}
-				
-				
-				if(check) {
+
+				if (check) {
 					System.out.println("중복된 전화번호가 존재합니다. \n다시입력해주세요. >>");
 				} else {
 					break;
 				}
-				
+
 			} else {
 				System.out.println("공백은 허용하지 않습니다. 정상적인 문자를 입력하세요!");
 			}
 		}
-		
-		
-		
+
 		return phoneNumber;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
