@@ -37,7 +37,7 @@ public class MessageClient extends Thread implements Runnable{
 			
 		}
 		
-		
+		//
 		
 		din.close();
 		dout.close();
