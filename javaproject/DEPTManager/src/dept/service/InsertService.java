@@ -8,40 +8,28 @@ import dept.dao.OracleDao;
 import dept.domain.Dept;
 import dept.util.ConnectionProvider;
 
-public class SelectByService {
+public class InsertService {
 	
 	Dao dao = new OracleDao();
 	
-	public Dept selectByDeptno(int deptno) {
+	public int insert(Dept dept) {
 		
-		Dept dept = null;
+		int result = 0;
+		
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dept = dao.selectByDeptno(conn, deptno);
+			
+			result = dao.insert(conn, dept);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			if(conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
 		}
 		
-		return dept;
+		return result;
+		
 		
 	}
 
 }
-
-
-
-
-
-
-

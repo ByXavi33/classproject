@@ -7,7 +7,7 @@ import java.util.List;
 import dept.domain.Dept;
 
 public interface Dao {
-
+	
 	List<Dept> select(Connection conn) throws SQLException;
 	Dept selectByDeptno(Connection conn, int deptno) throws SQLException;
 	
@@ -16,7 +16,5 @@ public interface Dao {
 	int update(Connection conn, Dept dept) throws SQLException;
 	int delete(Connection conn, int deptno) throws SQLException;
 	
-	
-	
-	
+
 }

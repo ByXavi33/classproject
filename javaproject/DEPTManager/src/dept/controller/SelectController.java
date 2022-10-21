@@ -1,13 +1,16 @@
-package dept;
+package dept.controller;
 
 import java.util.List;
 
+import dept.dao.MysqlDao;
+import dept.dao.OracleDao;
 import dept.domain.Dept;
 import dept.service.SelectService;
 
-public class SelectController {
+public class SelectController implements Controller {
 	
-	SelectService service = new SelectService();
+	//SelectService service = new SelectService(new OracleDao());
+	SelectService service = new SelectService(new MysqlDao());
 	
 	public void process() {
 		

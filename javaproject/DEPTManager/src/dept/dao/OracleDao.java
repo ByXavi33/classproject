@@ -1,7 +1,6 @@
 package dept.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +21,6 @@ public class OracleDao implements Dao {
 		ResultSet rs = null;
 
 		try {
-
 			stmt = conn.createStatement();
 
 			String sql = "select * from dept";
@@ -30,7 +28,8 @@ public class OracleDao implements Dao {
 
 			while (rs.next()) {
 				// 각 행의 데이터를 Dept 객체로 생성 -> List 추가
-
+				// list.add(new Dept(rs.getInt("deptno"), rs.getString("dname"),
+				// rs.getString("loc")));
 				list.add(rowToDept(rs));
 			}
 		} finally {
@@ -43,68 +42,65 @@ public class OracleDao implements Dao {
 		}
 
 		return list;
-
 	}
 
 	@Override
 	public Dept selectByDeptno(Connection conn, int deptno) throws SQLException {
 
 		Dept dept = null;
-       
+
 		String sql = "select * from dept where deptno=?";
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		
-        try {
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, deptno);
 
-		// Select의 결과를 담고 있는 객체
-		rs = pstmt.executeQuery();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
 
-		if (rs.next()) {
-			dept = rowToDept(rs);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dept = rowToDept(rs);
+			}
+		} finally {
+			if (rs != null) {
+				rs.close();
+			}
+			if (pstmt != null) {
+				pstmt.close();
+			}
 		}
-        }finally {
-        	if(rs !=null) {
-        		rs.close();
-        	}
-        	if(pstmt != null) {
-        		pstmt.close();
-        	}
-        }
+
 		return dept;
 	}
 
 	private Dept rowToDept(ResultSet rs) throws SQLException {
-
 		return new Dept(rs.getInt("deptno"), rs.getString("dname"), rs.getString("loc"));
-
 	}
 
 	@Override
 	public int insert(Connection conn, Dept dept) throws SQLException {
 
 		int result = 0;
-		PreparedStatement pstmt= null;
+		PreparedStatement pstmt = null;
+
 		// 입력 처리
 		String sql = "insert into dept values (?, ?, ?)";
 
 		try {
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, dept.getDeptno());
-		pstmt.setString(2, dept.getDname());
-		pstmt.setString(3, dept.getLoc());
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dept.getDeptno());
+			pstmt.setString(2, dept.getDname());
+			pstmt.setString(3, dept.getLoc());
 
-		result = pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		} finally {
-			if(pstmt != null) {
+			if (pstmt != null) {
 				pstmt.close();
 			}
 		}
-	
+
 		return result;
 	}
 
@@ -112,23 +108,22 @@ public class OracleDao implements Dao {
 	public int update(Connection conn, Dept dept) throws SQLException {
 
 		int result = 0;
-		PreparedStatement pstmt= null;
+		PreparedStatement pstmt = null;
+
 		String sql = "update dept set dname=?, loc=? where deptno=?";
 
 		try {
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, dept.getDname());
-		pstmt.setString(2, dept.getLoc());
-		pstmt.setInt(3, dept.getDeptno());
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dept.getDname());
+			pstmt.setString(2, dept.getLoc());
+			pstmt.setInt(3, dept.getDeptno());
 
-		result = pstmt.executeUpdate();
-		}finally {
-			if (pstmt !=null) {
+			result = pstmt.executeUpdate();
+		} finally {
+			if (pstmt != null) {
 				pstmt.close();
 			}
 		}
-		
-		
 
 		return result;
 	}
@@ -136,24 +131,22 @@ public class OracleDao implements Dao {
 	@Override
 	public int delete(Connection conn, int deptno) throws SQLException {
 
-		// 삭제처리
 		int result = 0;
-		PreparedStatement pstmt= null; 
-		
+		PreparedStatement pstmt = null;
+
+		// 삭제 처리
 		String sql = "delete from dept where deptno=?";
 
 		try {
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, deptno);
-
-		result = pstmt.executeUpdate();
-		}finally {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+	
+			result = pstmt.executeUpdate();
+		} finally {
 			if(pstmt != null) {
 				pstmt.close();
-
 			}
 		}
-		
 
 		return result;
 	}

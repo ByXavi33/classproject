@@ -8,40 +8,25 @@ import dept.dao.OracleDao;
 import dept.domain.Dept;
 import dept.util.ConnectionProvider;
 
-public class SelectByService {
-	
+public class UpdateService {
+
 	Dao dao = new OracleDao();
-	
-	public Dept selectByDeptno(int deptno) {
-		
-		Dept dept = null;
+
+	public int update(Dept dept) {
+
+		int result = 0;
 		Connection conn = null;
-		
+
 		try {
 			conn = ConnectionProvider.getConnection();
-			dept = dao.selectByDeptno(conn, deptno);
-			
+
+			result = dao.update(conn, dept);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			if(conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
 		}
-		
-		return dept;
-		
+
+		return result;
 	}
 
 }
-
-
-
-
-
-
-
