@@ -16,6 +16,7 @@ public class Dept {
 
 	public Dept() {
 	}
+	
 
 	public int getDeptno() {
 		return deptno;
